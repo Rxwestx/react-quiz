@@ -33,6 +33,12 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+            // 未定義変数を使用してる場合はエラー
+      "no-undef": "error",
+      // 未使用変数を使用してる場合はエラー
+      "no-unused-vars": "error",
+      // prop-typesを使用してる場合はエラー
+      "react/prop-types": "off",
     },
   },
 ]
