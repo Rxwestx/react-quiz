@@ -1,21 +1,29 @@
 const quizData = [
   {
 
-    question: "Question1",
+    question: "Question 1",
     options: ["select1", "select2", "select3", "select4"],
     answerIndex: 0
     },{
-        question: "Question2",
+        question: "Question 2",
 options: ["select1", "select2", "select3", "select4"],
 answerIndex: 1
     },{
-        question: "Question3",
+        question: "Question 3",
 options: ["select1", "select2", "select3", "select4"],
 answerIndex: 2
     },{
-        question: "Question4",
+        question: "Question 4",
 options: ["select1", "select2", "select3", "select4"],
 answerIndex: 3
+    },{
+        question: "Question 4",
+options: ["select1", "select2", "select3", "select4"],
+answerIndex: 3
+    },{
+        question: "Question 5",
+options: ["select1", "select2", "select3", "select4"],
+answerIndex: 1
     }
 ];
 
