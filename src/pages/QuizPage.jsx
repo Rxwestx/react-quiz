@@ -3,9 +3,16 @@ import quizData from "../data/quiz";
 import Button from "../components/Button/Button";
 
 export default function QuizPage() {
-  const quizIndex = 0;
+  const [quizIndex, setQuizIndex] = useState(0);
+  const [answersLogs, setAnswersLogs] = useState([]);
+
   const handleClick = (clickedIndex) => {
-    console.log("clickedIndex:", clickedIndex);
+    if (clickedIndex === quizData[quizIndex].answerIndex) {
+      setAnswersLogs((prev) => [...prev, true]);
+    } else {
+      setAnswersLogs((prev) => [...prev, false]);
+    }
+    setQuizIndex((prev) => prev + 1);
   };
   return (
     <>
