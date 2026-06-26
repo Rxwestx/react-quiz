@@ -21,9 +21,13 @@ export default function QuizPage() {
 
   useEffect(() => {
     if (answersLogs.length === MAX_QUIZ_LEN){
+      const correctNum = answersLogs.filter((answer) => {
+        return answer === true
+      })
       navigation(ROUTES.RESULT,{
         stete: {
           maxQuizLen: MAX_QUIZ_LEN,
+          correctNum: correctNum
         }
       });
     }
