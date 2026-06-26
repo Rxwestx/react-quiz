@@ -1,10 +1,13 @@
 import Display from "../components/Display/Display";
-import quizData from "../data/quiz";
 import Button from "../components/Button/Button";
+import quizData from "../data/quiz";
+import { useNavigate } from "react-router-dom";
 
 export default function QuizPage() {
   const [quizIndex, setQuizIndex] = useState(0);
   const [answersLogs, setAnswersLogs] = useState([]);
+  const navigation = useNavigate();
+  const MAX_QUIZ_LEN = quizData.length
 
   const handleClick = (clickedIndex) => {
     if (clickedIndex === quizData[quizIndex].answerIndex) {
@@ -14,9 +17,11 @@ export default function QuizPage() {
     }
     setQuizIndex((prev) => prev + 1);
   };
+
   return (
     <>
-      <Display>{`Q1. ${quizData[quizIndex].question}`}</Display>
+      <Display>{
+      `Q1. ${quizData[quizIndex].question}`}</Display>
       {quizData[quizIndex].options.map((option, index) => {
         return (
           <Button key={`option-${index}`} onClick={() => handleClick(index)}>
