@@ -13,38 +13,32 @@ export default function QuizPage() {
 
   const handleClick = (clickedIndex) => {
     if (clickedIndex === quizData[quizIndex].answerIndex) {
-      setAnswersLogs((prev) => [...prev, true]);
+      setAnswersLogs(prev => [...prev, true]);
     } else {
-      setAnswersLogs((prev) => [...prev, false]);
+      setAnswersLogs(prev => [...prev, false]);
     }
-    setQuizIndex((prev) => prev + 1);
+    setQuizIndex(prev => prev + 1);
   };
 
   useEffect(() => {
     if (answersLogs.length === MAX_QUIZ_LEN){
-      const correctNum = answersLogs.filter((answer) => {
-        return answer === true
-      })
+      const correctNum = answersLogs.filter(answer => answer === true)
       navigation(ROUTES.RESULT,{
-        stete: {
+        state: {
           maxQuizLen: MAX_QUIZ_LEN,
           correctNum: correctNum
         }
       });
     }
-  },[answersLogs]);
+  },[answersLogs,MAX_QUIZ_LEN,navigation]);
 
   return (
     <>
       {quizData[quizIndex] &&<Display>{
-      `Q1. ${quizData[quizIndex].question}`}</Display>}
-      {quizData[quizIndex]&& quizData[quizIndex].options.map((option, index) => {
-        return (
-          <Button key={`option-${index}`} onClick={() => handleClick(index)}>
-            {option}
-          </Button>
-        );
-      })}
+      `Q${quizIndex +1}. ${quizData[quizIndex].question}`}</Display>}
+      <br />
+      {quizData[quizIndex]&& quizData[quizIndex].options.map((option, index) =>
+          <Button key={`option-${index}`} onClick={() => handleClick(index)}>{option}</Button>)}
     </>
   );
 }
