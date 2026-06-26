@@ -2,6 +2,7 @@ import Display from "../components/Display/Display";
 import Button from "../components/Button/Button";
 import quizData from "../data/quiz";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../const";
 
 export default function QuizPage() {
   const [quizIndex, setQuizIndex] = useState(0);
@@ -17,6 +18,16 @@ export default function QuizPage() {
     }
     setQuizIndex((prev) => prev + 1);
   };
+
+  useEffect(() => {
+    if (answersLogs.length === MAX_QUIZ_LEN){
+      navigation(ROUTES.RESULT,{
+        stete: {
+          maxQuizLen: MAX_QUIZ_LEN,
+        }
+      });
+    }
+  },[answersLogs]);
 
   return (
     <>
