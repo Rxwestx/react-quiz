@@ -17,14 +17,10 @@ answerIndex: 2
 options: ["select1", "select2", "select3", "select4"],
 answerIndex: 3
     },{
-        question: "Question 4",
-options: ["select1", "select2", "select3", "select4"],
-answerIndex: 3
-    },{
         question: "Question 5",
 options: ["select1", "select2", "select3", "select4"],
-answerIndex: 1
-    }
+answerIndex: 3
+    },
 ];
 
 export default quizData
